@@ -82,14 +82,21 @@ const ParseWikiText = (content: string) => {
   const deleteReference = deleteBrace.replace(/(参考文献|脚注)[\s\S]*/g, "");
   // <>,[[w:~]],[http~],[[(File:|画像)~thumb]]を削除
   const deleteTag = deleteReference.replace(/<[\s\S]*?>|\[\[:?w:.*?\]\]|\[http.*?\]|\[(File:|画像:|ファイル:|Image:|file|image:).*?thumb/g, "");
-  // =,[,],',",{,} を削除
-  const deleteSymbol = deleteTag.replace(/=|'|"|\[|\]|\{|\}/g, "");
+  // [,],',",{,} を削除
+  const deleteSymbol = deleteTag.replace(/'|"|\[|\]|\{|\}/g, "");
   // #を*に変換
   const convertSharp = deleteSymbol.replace(/#/g, "*");
   // 空白と\nを削除
   const deleteBlank = convertSharp.replace(/\s|\\n/g, "");
-  return deleteBlank;
+  // ===~=== | === ~ ===を ### ~ に変換
+  const convertTripleEqual = deleteBlank.replace(/===(.*?)===/g, "\n### $1\n");
+  // ==~== | == ~ ==を ## ~ に変換
+  const convertDoubleEqual = convertTripleEqual.replace(/==(.*?)==/g, "\n## $1\n");
+  // =を削除
+  const deleteEqual = convertDoubleEqual.replace(/=/g, "");
+  return deleteEqual;
 };
+
 
 const main = async () => {
   const titles = input.split("\n").map((line) => line.trim());

@@ -14,7 +14,7 @@ interface ParsedMd {
   content: string;
 }
 
-const input = fs.readFileSync(path.resolve(__dirname, "./mdData/allData.md"), "utf-8");
+const input = fs.readFileSync(path.resolve(__dirname, "./mdData/allData.md"), "utf-8").replace(/##+/g, "");
 const linesText = input.split("\#").filter((line) => line !== "");
 
 const parsedMd: ParsedMd[] = linesText.map((line) => {

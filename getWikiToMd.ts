@@ -4,20 +4,27 @@ const path = require("path");
 
 const api_url = "https://ja.wikipedia.org/w/api.php";
 
+// input.txtを読み込み
+const input = fs.readFileSync(path.resolve(__dirname, "./input.txt"), "utf-8") as string;
+
 // apiリクエスト
 const request = async (title: string) => {
-  const params = {
-    "action": "query",
-    "format": "json",
-    "prop": "revisions",
-    "titles": title, // 取得したいページのタイトルを指定
-    "rvprop": "content"
-  };
-  const response = await axios.get(api_url, { params });
-  const pages = response.data.query.pages;
-  const pageId = Object.keys(pages)[0];
-  const content = pages[pageId].revisions[0]["*"] as string;
-  return content;
+  try {
+    const params = {
+      "action": "query",
+      "format": "json",
+      "prop": "revisions",
+      "titles": title, // 取得したいページのタイトルを指定
+      "rvprop": "content"
+    };
+    const response = await axios.get(api_url, { params });
+    const pages = response.data.query.pages;
+    const pageId = Object.keys(pages)[0];
+    const content = pages[pageId].revisions[0]["*"] as string;
+    return content;
+  } catch (error) {
+    return "not found";
+  }
 };
 
 // jsonとして保存
@@ -68,8 +75,9 @@ const ParseWikiText = async (content: string) => {
 };
 
 const main = async () => {
-  const titles = ["ドクガ", "タランチュラ", "チャドクガ"];
+  const titles = input.split("\n").map((line) => line.trim());
   for (const title of titles) {
+    if (title === "") continue;
     if (await isExistMd(title)) {
       console.log(`skip ${title}`);
       continue;

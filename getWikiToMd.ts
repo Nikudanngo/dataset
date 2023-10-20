@@ -88,9 +88,9 @@ const ParseWikiText = (content: string) => {
   const convertSharp = deleteSymbol.replace(/#/g, "*");
   // 空白と\nを削除
   const deleteBlank = convertSharp.replace(/\s|\\n/g, "");
-  // ===~=== | === ~ ===を ### ~ に変換
+  // ===~===を ### ~ に変換
   const convertTripleEqual = deleteBlank.replace(/===(.*?)===/g, "\n### $1\n");
-  // ==~== | == ~ ==を ## ~ に変換
+  // ==~==を ## ~ に変換
   const convertDoubleEqual = convertTripleEqual.replace(/==(.*?)==/g, "\n## $1\n");
   // =を削除
   const deleteEqual = convertDoubleEqual.replace(/=/g, "");

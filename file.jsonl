@@ -1,0 +1,8 @@
+{
+  "error": {
+    "message": "Invalid authorization header",
+    "type": "server_error",
+    "param": null,
+    "code": null
+  }
+}

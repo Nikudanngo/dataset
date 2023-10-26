@@ -70,7 +70,7 @@ const AppendSaveMd = (title: string, content: string) => {
 // .mdの中に# $titleがすでに保存されているか確認
 const IsExistMdData = (title: string) => {
   const allData = fs.readFileSync(path.resolve(__dirname, `./mdData/allData.md`), "utf-8");
-  const isExist = allData.includes(`# ${title}`);
+  const isExist = allData.match(new RegExp(`^# ${title}`, "m")) ? true : false;
   return isExist;
 };
 

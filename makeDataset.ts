@@ -6,7 +6,7 @@ interface Message {
   role: "user" | "assistant";
   content: string;
 }
-interface Dataset {
+export interface Dataset {
   messages: Message[];
 }
 interface ParsedMd {

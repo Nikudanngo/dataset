@@ -17,7 +17,7 @@ async function main() {
   const fineTune = await openai.fineTuning.jobs.create(
     {
       training_file: upload_file.id,
-      model: "gpt-3.5-turbo",
+      model: "gpt-3.5-turbo-1106",
       suffix: title,
     }
   );

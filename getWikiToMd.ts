@@ -15,12 +15,12 @@ const Request = async (title: string) => {
       "format": "json",
       "prop": "revisions",
       "titles": title, // 取得したいページのタイトルを指定
-      "rvprop": "content"
+      "rvprop": "content",
+      "formatversion": 2,
+      "rvslots": "main"
     };
     const response = await axios.get(api_url, { params });
-    const pages = response.data.query.pages;
-    const pageId = Object.keys(pages)[0];
-    const content = pages[pageId].revisions[0]["*"] as string;
+    const content = response.data.query.pages[0].revisions[0].slots.main.content as string;
     return content;
   } catch (error) {
     console.log(error);
@@ -134,3 +134,4 @@ const main = async () => {
 };
 
 main();
+// console.log(await Request("イトグモ"));

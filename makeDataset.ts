@@ -25,7 +25,7 @@ const parsedMd: ParsedMd[] = linesText.map((line) => {
 const wikiToDataset = (parsedMd: ParsedMd[]): Dataset[] => {
   const datasets = parsedMd.map((line) => {
     const messages: Message[] = [
-      { role: "user", content: line.title },
+      { role: "user", content: line.title.replace("->", ",") + "について教えて" },
       { role: "assistant", content: line.content.replace(/\n/g, "") },
     ];
     console.log(messages);

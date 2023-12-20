@@ -7,7 +7,8 @@
     "get": "bun run getWikiToMd.ts",
     "make": "bun run makeDataset.ts",
     "check": "bun run checkToken.ts",
-    "deploy": "bun run train/index.ts"
+    "deploy": "bun run train/index.ts",
+    "make:evals": "bun run makeEvalsData.ts"
   },
   "author": "",
   "license": "ISC",

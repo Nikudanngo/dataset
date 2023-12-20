@@ -1,0 +1,4 @@
+{"input":[{"role":"system","content":"その虫を安全に食べることができる調理法を提案してください"},{"role":"user","content":"ミツバチ"}],"ideal":"加熱"}
+{"input":[{"role":"system","content":"その虫を安全に食べることができる調理法を提案してください"},{"role":"user","content":"ゴキブリ"}],"ideal":["洗う","加熱"]}
+{"input":[{"role":"system","content":"その虫を安全に食べることができる調理法を提案してください"},{"role":"user","content":"ナメクジ"}],"ideal":["洗う","加熱"]}
+{"input":[{"role":"system","content":"その虫を安全に食べることができる調理法を提案してください"},{"role":"user","content":"カブトムシ"}],"ideal":["洗う","加熱"]}

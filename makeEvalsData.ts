@@ -36,7 +36,6 @@ function addToJSONLFile(filename: string, data: string) {
 }
 
 const main = () => {
-  const mainData = fs.readFileSync(path.resolve(__dirname, `./evalsData/main.jsonl`), "utf-8");
   // ./evalsData/main.jsonlを空にする
   fs.writeFileSync(path.resolve(__dirname, `./evalsData/main.jsonl`), "");
   // input.txtを読み込んで、main.jsonlに追記
@@ -48,6 +47,7 @@ const main = () => {
     const recipe = generateJSONL(insect, methodsArray);
     addToJSONLFile('./evalsData/main.jsonl', recipe);
   }
+  const mainData = fs.readFileSync(path.resolve(__dirname, `./evalsData/main.jsonl`), "utf-8");
   console.log(mainData);
 };
 

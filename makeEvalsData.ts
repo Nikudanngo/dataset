@@ -18,7 +18,7 @@ function generateJSONL(insect: string, methods: string[]): string {
     input: [
       {
         role: "system",
-        content: "その虫を安全に食べることができる調理法を提案してください",
+        content: "Userから入力された虫を安全に食べることができる調理法をAssistant:の続きに提案してください。ただし、AIの解答は繰り返ずに一度だけ答えて。返答は日本語で提供してください。提案された調理法の利点や理由も説明してください。",
       },
       {
         role: "user",

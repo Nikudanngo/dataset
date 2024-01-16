@@ -1,0 +1,24 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: wikipedia insect dataset
+message: >-
+  If you use this dataset, please cite it using the metadata
+  from this file.
+type: dataset
+authors:
+  - given-names: 哲
+    family-names: 遠藤
+    email: nnikudango@gmail.com
+    affiliation: 大阪工業大学 ロボティクス＆デザイン工学部 システムデザイン工学科 知能ロボティクス研究室
+repository-code: 'https://github.com/Nikudanngo/dataset'
+abstract: >-
+  wikipedaiから取得したデータセット.昆虫食の分野に特化したモデルを作成するために,昆虫や毒に関してUser(人間)が質問し,Assistant(AI)がその昆虫の特徴や毒の性質を回答する形式
+keywords:
+  - LLM
+  - Dataset
+  - Japanese
+  - ChatGPT
+  - Insect
+license: MIT

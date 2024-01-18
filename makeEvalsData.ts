@@ -43,7 +43,7 @@ const main = () => {
   for (const line of lines) {
     if (line === "") continue;
     const [insect, methods] = line.split('|');
-    const methodsArray = methods.split(',');
+    const methodsArray = methods.split('、');
     const recipe = generateJSONL(insect, methodsArray);
     addToJSONLFile('./evalsData/main.jsonl', recipe);
   }

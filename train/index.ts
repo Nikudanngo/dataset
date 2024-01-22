@@ -5,7 +5,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const title = "CookBug10epoch";
+const title = "CookBug30epoch";
 
 async function main() {
   const upload_file = await openai.files.create({
@@ -20,7 +20,7 @@ async function main() {
       model: "gpt-3.5-turbo-1106",
       suffix: title,
       hyperparameters: {
-        n_epochs: 10,
+        n_epochs: 30,
       },
     }
   );

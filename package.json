@@ -18,5 +18,11 @@
     "openai": "^4.14.0",
     "parse-wikitext": "^1.0.0",
     "tiktoken": "^1.0.10"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
   }
 }

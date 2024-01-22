@@ -64,6 +64,10 @@ const main = () => {
   console.log(sortedTokenTitlePairs);
   console.log("Tokens Over 4000:");
   console.log(tokensOver4000);
+  // 全トークンの平均を表示
+  console.log("Average Token Count:");
+  console.log(tokens.reduce((a, b) => a + b) / tokens.length);
+
 
   encoder.free();
 };

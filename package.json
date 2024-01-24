@@ -8,7 +8,8 @@
     "make": "bun run makeDataset.ts",
     "check": "bun run checkToken.ts",
     "deploy": "bun run train/index.ts",
-    "make:evals": "bun run makeEvalsData.ts"
+    "make:evals": "bun run makeEvalsData.ts",
+    "chat": "bun run chat/index.ts"
   },
   "author": "",
   "license": "ISC",

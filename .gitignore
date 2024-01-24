@@ -4,3 +4,4 @@ jsonData/
 dataset/
 .env
 .Ds_Store
+chat/*.json

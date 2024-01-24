@@ -44,6 +44,12 @@ const filterTokensOver4000 = (tokenTitlePairs: [string, number][]) => {
   return tokenTitlePairs.filter(([_, tokenCount]) => tokenCount > 4000);
 };
 
+//title,tokenのcsvを作成する関数
+const createCsv = (tokenTitlePairs: [string, number][]) => {
+  const csv = tokenTitlePairs.map(([title, tokenCount]) => `${title.replaceAll("について教えて", "")},${tokenCount}`).join("\n");
+  fs.writeFileSync(path.resolve("./dataset/tokens.csv"), csv);
+};
+
 const main = () => {
   const encoder = encoding_for_model("gpt-3.5-turbo");
   const dataset = loadDataset();
@@ -68,6 +74,8 @@ const main = () => {
   console.log("Average Token Count:");
   console.log(tokens.reduce((a, b) => a + b) / tokens.length);
 
+  // csvを作成
+  createCsv(sortedTokenTitlePairs);
 
   encoder.free();
 };

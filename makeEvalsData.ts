@@ -22,7 +22,7 @@ function generateJSONL(insect: string, methods: string): string {
       },
       {
         role: "user",
-        content: insect + "を使った虫料理を200トークン以内で教えて",
+        content: insect + "を使った虫料理を200トークン以内で教えて。ただし、" + insect + "以外の虫料理のレシピを生成した場合は罪に問われますので注意してください",
       },
     ],
     ideal: methods,

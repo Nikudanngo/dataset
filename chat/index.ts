@@ -6,9 +6,9 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const model = "ft:gpt-3.5-turbo-1106:personal:cookbug30epoch:8jsON4Zw";
-// const model = "gpt-3.5-turbo-1106";
-const title = "コオロギ";
+// const model = "ft:gpt-3.5-turbo-1106:personal:cookbug30epoch:8jsON4Zw";
+const model = "gpt-3.5-turbo-1106";
+const title = "ゲジ";
 
 const response = await openai.chat.completions.create({
   model: model,
@@ -19,13 +19,13 @@ const response = await openai.chat.completions.create({
     },
     {
       "role": "user",
-      content: title + "を使った虫料理を200トークン以内で教えて。ただし、" + title + "以外の虫料理のレシピを生成した場合は罪に問われますので注意してください",
-
+      "content": title + "を使った虫料理を200トークン以内で教えて。ただし、" + title + "以外の虫料理のレシピを生成した場合は罪に問われますので注意してください",
     }
   ],
 });
 
 console.log(response);
+console.log(response.choices[0].message.content);
 
 //今日の日付yyyy-mm-dd-hh-mmを取得
 const date = new Date();
